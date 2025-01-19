@@ -67,44 +67,49 @@
 # def octal_to_decimal_conversion(number):
 #     return conversion_to_decimal(number, 8)
  
-
+################################################################################
 # #octal to hexa
 # # octal to binary
 
-# def octal_to_binary_conversion(number):
-#     dict_octal_binary_numbers = {0: "000", 
-#                                  1: "001",
-#                                  2: "010",
-#                                  3: "011",
-#                                  4: "100",
-#                                  5: "101",
-#                                  6: "110",
-#                                  7: "111"}
+def octal_to_binary_conversion(number):
+    dict_octal_binary_numbers = {0: "000", 
+                                 1: "001",
+                                 2: "010",
+                                 3: "011",
+                                 4: "100",
+                                 5: "101",
+                                 6: "110",
+                                 7: "111"}
     
-#     result = ""
+    result = ""
 
-#     for x in str(number)[::-1]:
-#         result = result + dict_octal_binary_numbers[int(x)]
+    for x in str(number)[::-1]:
+        result = result + dict_octal_binary_numbers[int(x)]
 
-#     return int(result)
+    return int(result)
 
-# def binary_to_octal_conversion(number):
-#     dict_octal_binary_numbers = {"000": 0, 
-#                                  "001": 1,
-#                                  "010": 2,
-#                                  "011": 3,
-#                                  "100": 4,
-#                                  "101": 5,
-#                                  "110": 6,
-#                                  "111": 7}
-#     result = ""
+def binary_to_octal_conversion(number):
+    dict_octal_binary_numbers = {"000": 0, 
+                                 "001": 1,
+                                 "010": 2,
+                                 "011": 3,
+                                 "100": 4,
+                                 "101": 5,
+                                 "110": 6,
+                                 "111": 7}
+    result = ""
 
+    number = str(number)
 
-#     for i in range(0, len(str(number)), 3):
+    while len(number)%3 != 0:
+        number = number + "0"
+        
 
-#         result = result + str(dict_octal_binary_numbers[str(number)[i:i+3]])      
+    for i in range(0, len(number), 3):
 
-#     return result
+        result = result + str(dict_octal_binary_numbers[number[i:i+3]])      
+
+    return result
 
 
 
@@ -189,8 +194,10 @@ if __name__ == "__main__":
     # print("Hexadecimal to Decimal", hexadecimal_to_decimal_conversion(hexa_test))
     # print("Octal to Decimal", octal_to_decimal_conversion(octal_test))
 
-    # print("Octal to Binary", octal_to_binary_conversion(55))
-    # print("Octal to Binary", binary_to_octal_conversion(101101))
+
+    ## fixed
+    print("Octal to Binary", octal_to_binary_conversion(12551))
+    print("Binary to Octal", binary_to_octal_conversion(101101))
 
 
     # print("Binary to Hexadecimal", binary_to_hexa_conversion(1010101101001))
