@@ -1,121 +1,121 @@
-# ##Standard Libraries
+##Standard Libraries
 
-# ## Third Party Libraries
+## Third Party Libraries
 
-# ## Functions
+## Functions
 
-##############################################################################
-## main conversion from ? BASE (Hexadecimal, binary, octal) to DECIMAL
-##############################################################################
+#############################################################################
+# main conversion from ? BASE (Hexadecimal, binary, octal) to DECIMAL
+#############################################################################
 
-# def conversion_from_decimal(number, divider):
-#     remainder = []
-#     dict_hexadecimal_letters = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
+def conversion_from_decimal(number, divider):
+    remainder = []
+    dict_hexadecimal_letters = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
 
-#     while number >= 1:
+    while number >= 1:
 
-#         if (number%divider) >=10:
-#             remainder.append(dict_hexadecimal_letters[(number%divider)])
-#             # print(remainder)
-#         else:
-#             remainder.append(number % divider)
+        if (number%divider) >=10:
+            remainder.append(dict_hexadecimal_letters[(number%divider)])
+            # print(remainder)
+        else:
+            remainder.append(number % divider)
 
-#         # print(number, "/", divider, "=", number//divider, "Remainder = ", remainder[len(remainder)-1])
-#         number = number // divider
+        # print(number, "/", divider, "=", number//divider, "Remainder = ", remainder[len(remainder)-1])
+        number = number // divider
 
-#     return "".join(str(x) for x in remainder[::-1])
+    return "".join(str(x) for x in remainder[::-1])
 
 
-# def decimal_to_binary_conversion(number):
-#     return conversion_from_decimal(number,2)
+def decimal_to_binary_conversion(number):
+    return conversion_from_decimal(number,2)
 
-# def decimal_to_hexadecimal_conversion(number):
-#     return conversion_from_decimal(number, 16)
+def decimal_to_hexadecimal_conversion(number):
+    return conversion_from_decimal(number, 16)
   
-# def decimal_to_octal_conversion(number):
-#     return conversion_from_decimal(number, 8)
+def decimal_to_octal_conversion(number):
+    return conversion_from_decimal(number, 8)
 
-##############################################################################
-## main conversion(s) from DECIMAL to ? BASE (Hexadecimal, binary, octal)
-##############################################################################
-# def conversion_to_decimal(number, divider):
-#     dict_hexadecimal_letters = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15}
+#############################################################################
+# main conversion(s) from DECIMAL to ? BASE (Hexadecimal, binary, octal)
+#############################################################################
+def conversion_to_decimal(number, divider):
+    dict_hexadecimal_letters = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15}
 
-#     counter = 0
-#     sum = 0
-#     current = 0
-#     start = 0
-#     first_two_chars = "0x"
+    counter = 0
+    sum = 0
+    current = 0
+    start = 0
+    first_two_chars = "0x"
 
-#     if first_two_chars == str(number)[:2]:
-#         number = number[2:]
+    if first_two_chars == str(number)[:2]:
+        number = number[2:]
 
-#     for x in str(number)[::-1]:
+    for x in str(number)[::-1]:
 
-#         if x != "x":
-#             if x in dict_hexadecimal_letters:
-#                 x = dict_hexadecimal_letters[x]
+        if x != "x":
+            if x in dict_hexadecimal_letters:
+                x = dict_hexadecimal_letters[x]
             
-#             current = (int(x) * (divider **counter))
-#             # print(x, "*", divider, "to the", counter, "= ", current)
-#             sum = sum + current
+            current = (int(x) * (divider **counter))
+            # print(x, "*", divider, "to the", counter, "= ", current)
+            sum = sum + current
 
-#             counter += 1 
+            counter += 1 
 
-#     return sum
+    return sum
 
-# def hexadecimal_to_decimal_conversion(number):
-#     return conversion_to_decimal(number, 16)
+def hexadecimal_to_decimal_conversion(number):
+    return conversion_to_decimal(number, 16)
     
-# def binary_to_decimal_conversion(number):
-#     return conversion_to_decimal(number, 2)
+def binary_to_decimal_conversion(number):
+    return conversion_to_decimal(number, 2)
 
-# def octal_to_decimal_conversion(number):
-#     return conversion_to_decimal(number, 8)
+def octal_to_decimal_conversion(number):
+    return conversion_to_decimal(number, 8)
  
-##############################################################################
-## main conversion(s) from OCTAL TO BINARY
-##                         BINARY TO OCTAL
-##############################################################################
-# def octal_to_binary_conversion(number):
-#     dict_octal_binary_numbers = {0: "000", 
-#                                  1: "001",
-#                                  2: "010",
-#                                  3: "011",
-#                                  4: "100",
-#                                  5: "101",
-#                                  6: "110",
-#                                  7: "111"}
+#############################################################################
+# main conversion(s) from OCTAL TO BINARY
+#                         BINARY TO OCTAL
+#############################################################################
+def octal_to_binary_conversion(number):
+    dict_octal_binary_numbers = {0: "000", 
+                                 1: "001",
+                                 2: "010",
+                                 3: "011",
+                                 4: "100",
+                                 5: "101",
+                                 6: "110",
+                                 7: "111"}
     
-#     result = ""
+    result = ""
 
-#     for x in str(number)[::-1]:
-#         result = result + dict_octal_binary_numbers[int(x)]
+    for x in str(number):
+        result = result + dict_octal_binary_numbers[int(x)]
 
-#     return int(result)
+    return int(result)
 
-# def binary_to_octal_conversion(number):
-#     dict_octal_binary_numbers = {"000": 0, 
-#                                  "001": 1,
-#                                  "010": 2,
-#                                  "011": 3,
-#                                  "100": 4,
-#                                  "101": 5,
-#                                  "110": 6,
-#                                  "111": 7}
-#     result = ""
+def binary_to_octal_conversion(number):
+    dict_octal_binary_numbers = {"000": 0, 
+                                 "001": 1,
+                                 "010": 2,
+                                 "011": 3,
+                                 "100": 4,
+                                 "101": 5,
+                                 "110": 6,
+                                 "111": 7}
+    result = ""
 
-#     number = str(number)
+    number = str(number)
 
-#     while len(number)%3 != 0:
-#         number = "0"+ number
+    while len(number)%3 != 0:
+        number = "0"+ number
         
 
-#     for i in range(0, len(number), 3):
+    for i in range(0, len(number), 3):
 
-#         result = result + str(dict_octal_binary_numbers[number[i:i+3]])      
+        result = result + str(dict_octal_binary_numbers[number[i:i+3]])      
 
-#     return result
+    return result
 
 
 
@@ -186,11 +186,23 @@ def hexa_to_binary_conversion(number):
 
     return int(result)
 
-# def octal_to_hexa_conversion(number):
-#     print(0)
 
-# def hexa_to_octal_conversion(number):
-#     print(0)
+
+
+def octal_to_hexa_conversion(number):
+    number = octal_to_binary_conversion(number)
+    print(number)
+
+    result = binary_to_hexa_conversion(number)
+
+    return result
+
+def hexa_to_octal_conversion(number):
+    number = hexa_to_binary_conversion(number)
+
+    result = binary_to_octal_conversion(number)
+    
+    return result
 
 
 
@@ -204,24 +216,28 @@ if __name__ == "__main__":
     hexa_test = "2D"
     octal_test = "55"
     
-    # ##works
-    # print("Decimal to Binary", decimal_to_binary_conversion(decimal_test))
-    # print("Decimal to Hexadecimal", decimal_to_hexadecimal_conversion(decimal_test))
-    # print("Decimal to Octal", decimal_to_octal_conversion(decimal_test))
+    ##works
+    print("Decimal to Binary", decimal_to_binary_conversion(decimal_test))
+    print("Decimal to Hexadecimal", decimal_to_hexadecimal_conversion(decimal_test))
+    print("Decimal to Octal", decimal_to_octal_conversion(decimal_test))
 
-    # ##works
-    # print("-------")
-    # print("Binary to Decimal", binary_to_decimal_conversion(binary_test))
-    # print("Hexadecimal to Decimal", hexadecimal_to_decimal_conversion(hexa_test))
-    # print("Octal to Decimal", octal_to_decimal_conversion(octal_test))
-
-
-    ## fixed
-    # print("Octal to Binary", octal_to_binary_conversion(12551)) ## check this if this still needs to be reversed
-    # print("Binary to Octal", binary_to_octal_conversion(101101))
+    ##works
+    print("-------")
+    print("Binary to Decimal", binary_to_decimal_conversion(binary_test))
+    print("Hexadecimal to Decimal", hexadecimal_to_decimal_conversion(hexa_test))
+    print("Octal to Decimal", octal_to_decimal_conversion(octal_test))
 
 
-    ##fixed
-    # print("Binary to Hexadecimal", binary_to_hexa_conversion(("1001110")))
-    # print("Hexadecimal to Binary", hexa_to_binary_conversion("4E"))
+    # fixed
+    print("Octal to Binary", octal_to_binary_conversion(12551)) 
+    print("Binary to Octal", binary_to_octal_conversion(101101))
+
+
+    #fixed
+    print("Binary to Hexadecimal", binary_to_hexa_conversion(("1001110")))
+    print("Hexadecimal to Binary", hexa_to_binary_conversion("4E"))
+
+    ##works?
+    print("Octal to Hexadecimal", octal_to_hexa_conversion(56))
+    print("Hexa to Octal", hexa_to_octal_conversion("2E"))
 
